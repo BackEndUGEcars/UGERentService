@@ -93,7 +93,9 @@ else {
 			        JSONArray cars = (JSONArray) jsonObject.get("car");
 			        if(cars != null) {
 			        	Iterator iterator = cars.iterator();
+			        	int i = 0;
 				        while (iterator.hasNext()) {
+				        	i++;
 				        	
 				            String s = iterator.next().toString();
 				            JSONObject jo = (JSONObject) parser.parse(s);        
@@ -117,6 +119,20 @@ else {
 						</figure>
 					<%
 			        }
+				        if (i == 0) {
+	                        out.println("</div><div class=\"wrapper\">\n" +
+	                                "\t\t\t\t\t<h3 style=\"text-align: center; color: #ccc;\">Oops, you don't rent any car</h3>\n" +
+	                                "\t\t\t\t\t<div\n" +
+	                                "\t\t\t\t\t\tstyle=\"margin: auto; text-align: center; height: 30%; width: 50%;\"\n" +
+	                                "\t\t\t\t\t\tclass=\"wrapper\">\n" +
+	                                "\t\t\t\t\t\t<form class=\"form-signin\" action=\"Home.jsp\">\n" +
+	                                "\t\t\t\t\t\t\t<button\n" +
+	                                "\t\t\t\t\t\t\t\tstyle=\"color: #fff; background-color: #171c8f; border-color: #171c8f;\"\n" +
+	                                "\t\t\t\t\t\t\t\tclass=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Back to home</button>\n" +
+	                                "\t\t\t\t\t\t</form>\n" +
+	                                "\t\t\t\t\t</div>\n" +
+	                                "\t\t\t\t</div>");
+	                    }
 			        }
 					%>
 					</div>

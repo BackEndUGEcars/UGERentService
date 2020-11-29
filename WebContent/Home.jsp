@@ -86,10 +86,7 @@ else {
 					<div class="cards">
 					<%					
 					String json = app.getAllCars();
-					System.out.println("json " + json);
 			        JSONParser parser = new JSONParser();
-
-
 			        JSONObject jsonObject = (JSONObject) parser.parse(json);
 			        JSONArray cars = (JSONArray) jsonObject.get("cars");
 			        Iterator iterator = cars.iterator();
